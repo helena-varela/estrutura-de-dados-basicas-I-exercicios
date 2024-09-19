@@ -5,6 +5,9 @@
  */
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../doctest.h"
+#include <utility>
+
+using namespace std;
 
 /**
  * @brief Conta o número de elementos pares e ímpares em um array de inteiros.
@@ -14,7 +17,9 @@
  * @return Um par onde o primeiro valor é o número de elementos pares e o segundo é o número de elementos ímpares.
  */
 std::pair<int, int> contarParesImpares(const int numeros[], int tamanho) {
-    return {-1, -1}; // é assim que se retorna um par: colocar um par de valores envoltos num par de colchetes
+    int pares = 0;
+    int impares = 0;
+    return make_pair(pares, impares);
 }
 
 TEST_CASE("Contar Pares e Ímpares - Teste com elementos mistos") {

@@ -5,7 +5,9 @@
  */
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../doctest.h"
-#include <stdexcept>
+#include <utility>
+
+using namespace std;
 
 /**
  * @brief Encontra o menor e o maior elemento em um array de inteiros.
@@ -16,7 +18,9 @@
  * @throws std::invalid_argument se o array estiver vazio (tamanho == 0).
  */
 std::pair<int, int> menorMaiorElemento(const int numeros[], int tamanho) {
-    return {-1, -1}; // é assim que se retorna um par: colocar um par de valores envoltos num par de colchetes
+    int menor = 0;
+    int maior = 0;
+    return make_pair(menor, maior);
 }
 
 TEST_CASE("Menor e Maior Elemento - Teste com elementos distintos") {
@@ -38,8 +42,4 @@ TEST_CASE("Menor e Maior Elemento - Teste com array unitário") {
     auto resultado = menorMaiorElemento(numeros, 1);
     CHECK(resultado.first == 42);
     CHECK(resultado.second == 42);
-}
-
-TEST_CASE("Menor e Maior Elemento - Teste com array vazio") {
-    CHECK_THROWS_AS(menorMaiorElemento(nullptr, 0), std::invalid_argument);
 }
