@@ -6,6 +6,10 @@
 - **Primário**: Praticar como compilar e executar programas em C++ pelo terminal de comandos utilizando o VS Code.
 - **Secundário**: Praticar **programação em pares** e incentivar colaboração durante a programação.
 
+### Pré-requisitos
+- Ter o VSCode instalado (seguir instruções do site). 
+- Ter o seguinte plugin instalado no VSCode: (i) C/C++ Extension Pack da Microsoft.
+
 ### **Instruções Gerais**
 
 Esta atividade deverá ser feita em dupla para que se exercite a **programação em par**, que é uma técnica de desenvolvimento de software em que duas pessoas trabalham juntas em uma mesma tarefa, usando um único computador. Nessa técnica, a dupla assume dois papéis complementares: o **piloto (driver)** e o **navegador (navigator)**.
@@ -18,10 +22,10 @@ Nesta tarefa, após concluir uma tarefa, os papéis devem ser trocados para que 
 ### **Compilação e Execução no Terminal**:
 No VS Code, crie um novo arquivo `.cpp` para cada tarefa proposta mais adiante. Após escrever o código, utilize o terminal para compilar e executar o programa. Não copie e cole o código dos programas a seguir; digite todo o código. Isso faz parte da atividade.
    
-Para compilar, utilize o seguinte comandos no terminal, substituindo `<arquivo>` pelo nome do arquivo correspondente ao exercício:
+Para compilar, utilize o seguinte comandos no terminal, substituindo `arquivo` pelo nome do arquivo correspondente ao exercício:
 
 ```bash
-g++ -std=c++20 -Wall -pedantic <arquivo>.cpp -o <arquivo> 
+g++ -std=c++20 -Wall -pedantic arquivo.cpp -o arquivo
 ```
 
 Esse comando compila o arquivo usando o `g++` com a especificação `C++20` e habilita os avisos (`-Wall`) e o modo estrito (`-pedantic`) para ajudar a identificar potenciais problemas no código ainda em tempo de compilação. É importante ler atentamente as mensagens exibidas pelo compilador no terminal. 
@@ -29,12 +33,12 @@ Esse comando compila o arquivo usando o `g++` com a especificação `C++20` e ha
 Em seguida, para executar o programa que foi criado, utilize o seguinte comando:
 
 ```bash
-./<arquivo>
+./arquivo
 ```
 
 Esse comando executa o programa gerado. Perceba que é necessário digitar o ponto-barra - ``./`` - antes do nome do programa para executá-lo.
 
----
+<div style="page-break-after: always;"></div>
 
 ### **Programas a Serem Desenvolvidos**
 
@@ -52,7 +56,7 @@ using namespace std;
 // Função que calcula o valor médio dos elementos de um array
 double calcularMedia(int arr[], int tamanho) {
     // Sua implementação deve vir aqui
-    return -1.0d;
+    return -1.0;
 }
 
 int main() {
@@ -71,42 +75,9 @@ int main() {
     return 0;
 }
 ```
+<div style="page-break-after: always;"></div>
 
-#### **Programa 2: Contar Elementos Repetidos em um Array**
-
-Implemente uma função que:
-- Recebe um array de inteiros e seu tamanho.
-- Retorna o número de elementos que se repetem no array.
-
-**Exemplo de código**:
-```cpp
-#include <iostream>
-using namespace std;
-
-// Função que conta elementos repetidos em um array
-int contarRepetidos(int arr[], int tamanho) {
-    // Sua implementação deve vir aqui
-    return -1;
-}
-
-int main() {
-    // Teste 1
-    int arr1[] = {1, 2, 2, 3, 1};
-    int tamanho1 = 5;
-    int repetidos1 = contarRepetidos(arr1, tamanho1);
-    cout << "Teste 1 - O valor esperado era 2 e retornou " << repetidos1 << endl;
-
-    // Teste 2
-    int arr2[] = {4, 5, 6, 7, 8};
-    int tamanho2 = 5;
-    int repetidos2 = contarRepetidos(arr2, tamanho2);
-    cout << "Teste 2 - O valor esperado era 0 e retornou " << repetidos2 << endl;
-
-    return 0;
-}
-```
-
-#### **Programa 3: Encontrar o Maior e Menor Elemento em um Array**
+#### **Programa 2: Encontrar o Maior e Menor Elemento em um Array**
 
 Implemente uma função que:
 - Recebe um array de inteiros e seu tamanho.
@@ -145,7 +116,9 @@ int main() {
 }
 ```
 
-#### **Programa 4: Verificar se um Array está Ordenado**
+<div style="page-break-after: always;"></div>
+
+#### **Programa 3: Verificar se um Array está Ordenado**
 
 Implemente uma função que:
 - Recebe um array de inteiros e seu tamanho.
@@ -170,10 +143,52 @@ int main() {
     cout << "Teste 1 - Esperado: true, retornou: " << (ordenado1 ? "true" : "false") << endl;
 
     // Teste 2
-    int arr2[] = {4, 3, 2, 1};
+    int arr2[] = {1, 2, 4, 3};
     int tamanho2 = 4;
     bool ordenado2 = verificarOrdenado(arr2, tamanho2);
     cout << "Teste 2 - Esperado: false, retornou: " << (ordenado2 ? "true" : "false") << endl;
+
+    return 0;
+}
+```
+
+<div style="page-break-after: always;"></div>
+
+#### **Programa 4: Contar Elementos Repetidos em um Array**
+
+Implemente uma função que:
+- Recebe um array de inteiros e seu tamanho.
+- Retorna o número de elementos que se repetem no array.
+
+**Exemplo de código**:
+```cpp
+#include <iostream>
+using namespace std;
+
+// Função que conta elementos repetidos em um array
+int contarRepetidos(int arr[], int tamanho) {
+    // Sua implementação deve vir aqui
+    return -1;
+}
+
+int main() {
+    // Teste 1
+    int arr1[] = {1, 2, 1, 3, 1};
+    int tamanho1 = 5;
+    int repetidos1 = contarRepetidos(arr1, tamanho1);
+    cout << "Teste 1 - O valor esperado era 1 e retornou " << repetidos1 << endl;
+
+    // Teste 2
+    int arr2[] = {4, 5, 6, 7, 8};
+    int tamanho2 = 5;
+    int repetidos2 = contarRepetidos(arr2, tamanho2);
+    cout << "Teste 2 - O valor esperado era 0 e retornou " << repetidos2 << endl;
+
+    // Teste 3
+    int arr3[] = {4, 4, 4, 4, 4};
+    int tamanho3 = 5;
+    int repetidos3 = contarRepetidos(arr3, tamanho3);
+    cout << "Teste 3 - O valor esperado era 1 e retornou " << repetidos3 << endl;
 
     return 0;
 }
