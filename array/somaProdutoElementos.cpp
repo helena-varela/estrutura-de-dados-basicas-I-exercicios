@@ -5,6 +5,9 @@
  */
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../doctest.h"
+#include <utility>
+
+using namespace std;
 
 /**
  * @brief Calcula a soma e o produto de todos os elementos de um array de inteiros.
@@ -14,7 +17,10 @@
  * @return Um par onde o primeiro valor é a soma dos elementos e o segundo é o produto dos elementos.
  */
 std::pair<int, int> somaProdutoArray(const int numeros[], int tamanho) {
-    return {-1, -1}; // é assim que se retorna um par: colocar um par de valores envoltos num par de colchetes
+    int soma = 0;
+    int produto = 1;
+
+    return make_pair(soma, produto);
 }
 
 TEST_CASE("Soma e Produto - Teste com elementos positivos") {
