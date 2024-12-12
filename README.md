@@ -62,3 +62,4 @@ Se todos os testes passarem, sua implementação (provavelmente) está correta. 
 1. [Manipulação de arrays](./array/Enunciado.md)
 2. [Recursão](./recursao/Enunciado.md)
 3. [Busca binária](./busca-binaria/Enunciado.md)
+4. [Pilha](./pilha/Enunciado.md)

@@ -49,3 +49,17 @@ Por exemplo:
 Obs.: Sua solução deverá, obrigatoriamente, usar uma pilha. Para isso, use uma ``stack`` da biblioteca padrão de C++. No arquivo Analisador.cpp há um exemplo de como iterar sobre os caracteres da string de entrada e como usar uma pilha do tipo ``stack``.
 
 Obs.: Considere que o aninhamento entre os parênteses, as chaves e os colchetes podem ocorrer em qualquer ordem na sequência de entrada.
+
+3. **Palíndromo** (`palindromo.cpp`)
+Uma palavra, frase ou sequência é um palíndromo se ela lê da mesma forma de frente para trás e de trás para frente, ignorando espaços e pontuações. Por exemplo:  
+- "ana" é palíndromo.  
+- "arara" é palíndromo.  
+- "a man a plan a canal panama" é palíndromo (ignorando espaços).
+
+Neste exercício, implemente uma função que, dada uma string de entrada, determine se ela é um palíndromo utilizando uma pilha (considere que não serão usados pontuações nem letras com acentos). Sua solução deve ignorar espaços em branco na verificação se é ou não palíndromo.
+
+```c++
+bool ehPalindromo(const std::string &entrada);
+```
+
+---
