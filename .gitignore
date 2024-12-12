@@ -3,3 +3,4 @@
 *.html
 *dSYM/
 */bin/*
+.vscode/*
