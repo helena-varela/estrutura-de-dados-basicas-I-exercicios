@@ -59,7 +59,7 @@ Uma palavra, frase ou sequência é um palíndromo se ela lê da mesma forma de 
 Neste exercício, implemente uma função que, dada uma string de entrada, determine se ela é um palíndromo utilizando uma pilha (considere que não serão usados pontuações nem letras com acentos). Sua solução deve ignorar espaços em branco na verificação se é ou não palíndromo.
 
 ```c++
-bool ehPalindromo(const std::string &entrada);
+bool ehPalindromo(string str);
 ```
 
 ---
