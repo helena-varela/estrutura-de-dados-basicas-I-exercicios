@@ -22,15 +22,12 @@ int encontrarPicoBitonico(const int arr[], int tamanho) {
 }
 
 TEST_CASE("Encontrar o Ponto de Pico em Sequência Bitônica - Testes") {
-    int arr1[] = {1, 3, 8, 12, 4, 2};
+    int arr1[] = {1, 3, 8, 12, 4, 2}; // crescente e decrescente
     CHECK(encontrarPicoBitonico(arr1, 6) == 3);
     
-    int arr2[] = {1, 2, 3, 4, 5};
-    CHECK(encontrarPicoBitonico(arr2, 5) == 4); // O pico é o último elemento
+    int arr2[] = {1, 2, 3, 4, 5}; // só crescente
+    CHECK(encontrarPicoBitonico(arr2, 5) == 4); 
     
-    int arr3[] = {5, 10, 20, 15};
-    CHECK(encontrarPicoBitonico(arr3, 4) == 2);
-    
-    int arr4[] = {3, 5, 3, 1};
-    CHECK(encontrarPicoBitonico(arr4, 4) == 1);
+    int arr3[] = {50, 40, 30, 15}; // só decrescente
+    CHECK(encontrarPicoBitonico(arr3, 4) == 0);
 }
