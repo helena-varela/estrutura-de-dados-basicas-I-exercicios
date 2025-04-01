@@ -422,37 +422,6 @@ int main() {
 }
 ```
 
-**Observação**: Para o Teste 2 e Teste 4, onde há empate entre elementos, qualquer um dos elementos com maior frequência será considerado correto.
-
----
-
-Claro! Aqui está uma escala para que os alunos possam estratificar seus resultados e realizar uma autoavaliação com base no desempenho na atividade diagnóstica:
-
----
-
-### **Escala de Autoavaliação**
-
-Para cada questão:
-
-- **10 pontos**: Sua implementação passou em **todos os 5 testes**.
-- **0 pontos**: Sua implementação não passou em todos os 5 testes.
-
----
-
-#### **Níveis de Desempenho**
-
-1. **Excelente**: **90 a 100 pontos**
-   - **Ação Recomendada**: Continue praticando para manter e aprimorar suas habilidades. Considere explorar tópicos mais avançados ou desafios adicionais.
-
-2. **Bom**: **70 a 80 pontos**
-   - **Ação Recomendada**: Revise as questões em que não obteve a pontuação máxima. Identifique os erros e tente refazer as implementações para consolidar seu conhecimento.
-
-3. **Satisfatório**: **50 a 60 pontos**
-   - **Ação Recomendada**: Revise os tópicos relacionados às questões em que não obteve sucesso. Pratique exercícios adicionais focados nesses assuntos para fortalecer sua compreensão.
-
-4. **Precisa Melhorar**: **40 pontos ou menos**
-   - **Ação Recomendada**: Considere revisar os materiais de estudo de ITP. Focalize em entender os fundamentos das estruturas de controle, funções e manipulação de arrays. Procure ajuda adicional se necessário, como tutorias ou sessões de estudo em grupo.
-
 ---
 
 ### **Reflexão e Próximos Passos**
