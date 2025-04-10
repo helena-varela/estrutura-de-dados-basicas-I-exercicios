@@ -32,6 +32,8 @@ Você deverá implementar algoritmos de ordenação e medir o tempo de execuçã
 
 ### 🧪 Etapas da Atividade
 
+Observação: todos os comandos mostrados a seguir assumem que você está executando-os a partir da raiz do diretório `ordenacao`.
+
 #### 1. Gerar os arquivos de entrada
 
 Execute o script `entradas.py`, localizado no diretório `utils`, para gerar os arquivos de entrada que serão usados nos testes.
