@@ -3,34 +3,35 @@ import csv
 import os.path
 import matplotlib.pyplot as plt
 
-# Cria um parser de argumentos
-parser = argparse.ArgumentParser()
-parser.add_argument('csv_file', help='Nome do arquivo CSV')
+# Parser de argumentos com suporte para 1 ou mais arquivos
+parser = argparse.ArgumentParser(description='Gerar gráfico de tempo de execução em função do tamanho da entrada.')
+parser.add_argument('csv_files', nargs='+', help='Um ou mais arquivos CSV contendo os dados')
 args = parser.parse_args()
 
-# Abre o arquivo CSV e lê os dados
-with open(args.csv_file) as arquivo_csv:
-    leitor_csv = csv.reader(arquivo_csv, delimiter=',')
-    campos = next(leitor_csv)
-    tamanhos = []
-    tempos = []
-    for linha in leitor_csv:
-        tamanhos.append(int(linha[0]))
-        tempos.append(float(linha[1]))
+# Processa cada CSV fornecido
+for csv_file in args.csv_files:
+    with open(csv_file) as arquivo_csv:
+        leitor_csv = csv.reader(arquivo_csv, delimiter=',')
+        campos = next(leitor_csv)
+        tamanhos = []
+        tempos = []
+        for linha in leitor_csv:
+            tamanhos.append(int(linha[0]))
+            tempos.append(float(linha[1]))
 
-# Gera o gráfico de linha
-plt.plot(tamanhos, tempos)
-plt.xlabel(campos[0])
-plt.ylabel(campos[1])
+    label = os.path.basename(csv_file).replace('.csv', '')
+    plt.plot(tamanhos, tempos, label=label)
 
-# Define o título do gráfico
-nome_arquivo = os.path.basename(args.csv_file)
-titulo_grafico = f'Tempo de execução em função do tamanho da entrada ({nome_arquivo})'
-plt.title(titulo_grafico)
+# Personalização do gráfico
+plt.xlabel('Tamanho da entrada')
+plt.ylabel('Tempo (ms)')
+plt.title('Tempo de execução em função do tamanho da entrada')
+plt.legend()
 
-# Define o nome do arquivo de saída
-nome_arquivo_entrada, extensao_arquivo = os.path.splitext(args.csv_file)
-nome_arquivo_saida = nome_arquivo_entrada + '_grafico.png'
+# Define nome do arquivo de saída
+base_names = "_vs_".join([os.path.splitext(os.path.basename(f))[0] for f in args.csv_files])
+nome_saida = f'data/{base_names}_grafico_comparativo.png'
 
-# Salva o gráfico como uma imagem PNG
-plt.savefig(nome_arquivo_saida)
+# Salva o gráfico
+plt.savefig(nome_saida)
+print(f'Gráfico salvo como {nome_saida}')
