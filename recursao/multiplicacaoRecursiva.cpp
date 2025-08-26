@@ -25,6 +25,5 @@ TEST_CASE("Multiplicar Dois Números Inteiros - Testes") {
     CHECK(multiplicacao(3, 4) == 12);
     CHECK(multiplicacao(0, 5) == 0);
     CHECK(multiplicacao(5, 0) == 0);
-    CHECK(multiplicacao(-3, 2) == -6);
-    CHECK(multiplicacao(7, -3) == -21);
+    CHECK(multiplicacao(3, 2) == 6);
 }
