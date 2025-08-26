@@ -4,7 +4,6 @@
 
 ### **Objetivos da Atividade**
 - **Primário**: Praticar como compilar e executar programas em C++ pelo terminal de comandos utilizando o VS Code.
-- **Secundário**: Praticar **programação em pares** e incentivar colaboração durante a programação.
 
 ### Pré-requisitos
 - Ter o VSCode instalado (seguir instruções do site). 
@@ -12,17 +11,12 @@
 
 ### **Instruções Gerais**
 
-Esta atividade deverá ser feita em dupla para que se exercite a **programação em par**, que é uma técnica de desenvolvimento de software em que duas pessoas trabalham juntas em uma mesma tarefa, usando um único computador. Nessa técnica, a dupla assume dois papéis complementares: o **piloto (driver)** e o **navegador (navigator)**.
-
-O piloto é a pessoa responsável por **escrever o código**. O piloto opera exclusivamente o teclado.
-O navegador assume o papel de **revisar, orientar e discutir a implementação do código**. O navegador opera exclusivamente o mouse. A dinâmica de se progrmaar em par promove a revisão do código durante a sua escrita, o que pode melhorar a qualidade do código, ao mesmo tempo em que promove a colaboração e a troca de conhecimento entre os participantes. 
-
-Nesta tarefa, após concluir uma tarefa, os papéis devem ser trocados para que ambos participem ativamente da escrita do código. 
+Esta atividade deverá ser feita individualmente. Para cada questão a seguir, escreva manualmente todo o código no seu editor de texto. Não faça copiar e colar! A ideia é começar a praticar e fixar a sintaxe básica de C++. 
 
 ### **Compilação e Execução no Terminal**:
 No VS Code, crie um novo arquivo `.cpp` para cada tarefa proposta mais adiante. Após escrever o código, utilize o terminal para compilar e executar o programa. Não copie e cole o código dos programas a seguir; digite todo o código. Isso faz parte da atividade.
    
-Para compilar, utilize o seguinte comandos no terminal, substituindo `arquivo` pelo nome do arquivo correspondente ao exercício:
+Para compilar, utilize o seguinte comando no terminal, substituindo `arquivo` pelo nome do arquivo correspondente ao exercício:
 
 ```bash
 g++ -std=c++20 -Wall -pedantic arquivo.cpp -o arquivo
@@ -77,40 +71,35 @@ int main() {
 ```
 <div style="page-break-after: always;"></div>
 
-#### **Programa 2: Encontrar o Maior e Menor Elemento em um Array**
+#### **Programa 2: Encontrar o Maior Elemento em um Array**
 
 Implemente uma função que:
 - Recebe um array de inteiros e seu tamanho.
-- Retorna o maior e o menor elemento do array.
+- Retorna o maior elemento do array.
 
 **Exemplo de código**:
 ```cpp
 #include <iostream>
-#include <utility>  // Necessário para std::pair
 using namespace std;
 
-// Função que encontra o maior e o menor elemento em um array
-pair<int, int> encontrarMaiorMenor(int arr[], int tamanho) {
+// Função que encontra o maior elemento em um array
+int encontrarMaior(int arr[], int tamanho) {
     // Sua implementação deve vir aqui
-    int maior = arr[0];
-    int menor = arr[0];
-    return make_pair(maior, menor);  // Assim que faz para retornar um par (maior, menor)
+    return -1;
 }
 
 int main() {
     // Teste 1
     int arr1[] = {10, 20, 5, 15, 30};
     int tamanho1 = 5;
-    pair<int, int> resultado1 = encontrarMaiorMenor(arr1, tamanho1);
-    cout << "Teste 1 - Maior esperado: 30, menor esperado: 5, retornou: " 
-         << resultado1.first << " e " << resultado1.second << endl;
+    int resultado1 = encontrarMaior(arr1, tamanho1);
+    cout << "Teste 1 - Maior esperado: 30, retornou: " << resultado1 << endl;
 
     // Teste 2
     int arr2[] = {50, 40, 60, 70, 20};
     int tamanho2 = 5;
-    pair<int, int> resultado2 = encontrarMaiorMenor(arr2, tamanho2);
-    cout << "Teste 2 - Maior esperado: 70, menor esperado: 20, retornou: " 
-         << resultado2.first << " e " << resultado2.second << endl;
+    int resultado2 = encontrarMaior(arr2, tamanho2);
+    cout << "Teste 2 - Maior esperado: 70, retornou: " << resultado2 << endl;
 
     return 0;
 }
@@ -122,7 +111,7 @@ int main() {
 
 Implemente uma função que:
 - Recebe um array de inteiros e seu tamanho.
-- Verifica se o array está ordenado em ordem crescente e retorna `true` ou `false`.
+- Verifica se o array está ordenado em ordem crescente e retorna `true`, caso esteja ordenado em ordem crescente, ou `false`, caso contrário.
 
 **Exemplo de código**:
 ```cpp
@@ -158,7 +147,7 @@ int main() {
 
 Implemente uma função que:
 - Recebe um array de inteiros e seu tamanho.
-- Retorna o número de elementos que se repetem no array.
+- Retorna quantos valores distintos aparecem ao menos 2 vezes, ou seja, se repetem.
 
 **Exemplo de código**:
 ```cpp
@@ -176,19 +165,22 @@ int main() {
     int arr1[] = {1, 2, 1, 3, 1};
     int tamanho1 = 5;
     int repetidos1 = contarRepetidos(arr1, tamanho1);
+    // Apenas o 1 se repete no array
     cout << "Teste 1 - O valor esperado era 1 e retornou " << repetidos1 << endl;
 
     // Teste 2
     int arr2[] = {4, 5, 6, 7, 8};
     int tamanho2 = 5;
     int repetidos2 = contarRepetidos(arr2, tamanho2);
+    // Nenhum se repete no array
     cout << "Teste 2 - O valor esperado era 0 e retornou " << repetidos2 << endl;
 
     // Teste 3
-    int arr3[] = {4, 4, 4, 4, 4};
+    int arr3[] = {5, 4, 2, 4, 5};
     int tamanho3 = 5;
     int repetidos3 = contarRepetidos(arr3, tamanho3);
-    cout << "Teste 3 - O valor esperado era 1 e retornou " << repetidos3 << endl;
+    // Os valores 4 e 5 se repetem no array
+    cout << "Teste 3 - O valor esperado era 2 e retornou " << repetidos3 << endl;
 
     return 0;
 }
