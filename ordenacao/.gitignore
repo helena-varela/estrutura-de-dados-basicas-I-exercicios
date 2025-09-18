@@ -1,2 +1,5 @@
 myenv
 Icon
+*.csv
+*.png
+*.dSYM
