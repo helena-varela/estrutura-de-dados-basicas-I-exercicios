@@ -18,8 +18,29 @@
  * @param alvo O elemento a ser buscado.
  * @return O índice do elemento no array, ou -1 se não estiver presente.
  */
-int buscaBinaria(const int arr[], int tamanho, int alvo) {
+
+int buscaBinariaRecursiva(const int arr[], int inicio, int fim, int alvo){
+    int meio = (inicio + fim)/2;
+
+    if (inicio > fim)
+    {
+        return -1;
+    } 
+    else if(arr[meio] > alvo){
+        return buscaBinariaRecursiva(arr, 0, meio-1, alvo);
+    } 
+    else if(arr[meio] < alvo){
+        return buscaBinariaRecursiva(arr, meio+1, fim, alvo);
+    } 
+    else if (arr[meio] == alvo){
+        return meio;
+    }
+
     return -1;
+}
+
+int buscaBinaria(const int arr[], int tamanho, int alvo) {
+    return buscaBinariaRecursiva(arr, 0, tamanho-1, alvo);
 }
 
 TEST_CASE("Busca Binária Simples - Testes") {
