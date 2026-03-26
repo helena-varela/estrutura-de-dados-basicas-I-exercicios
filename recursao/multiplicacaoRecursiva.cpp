@@ -26,7 +26,7 @@ int multiplicacao(int X, int Y) {
     }   
 }
 
-// ex: 3 * 2
+// ex: 3 * 2 =  3 + 3 + 3
 // X = 3, Y = 2
 // 2 + mult() -> 2 + 4 = 6
 // X = 2, Y = 2

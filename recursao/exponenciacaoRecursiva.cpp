@@ -18,8 +18,23 @@
  * @return O resultado de X^Y.
  */
 int exponenciacao(int X, int Y) {
-    return -1;
+    if (Y == 0)
+    {
+        return 1;
+    } else {
+        return X * exponenciacao(X, Y-1);
+    }
+    
 }
+// ex: 2^3
+// X = 2, Y = 3
+// 2 * exp() -> 2 * 4 = 8
+// X = 2, Y = 2
+// 2 * exp() -> 2 * 2 = 4
+// X = 2, Y = 1
+// 2 * exp() -> 2 * 1 = 2 
+// X = 2, Y =0
+// retorna 1, pq qualquer número elevado a 0 da 1
 
 TEST_CASE("Exponenciação de Dois Números Inteiros - Testes") {
     CHECK(exponenciacao(3, 4) == 81);

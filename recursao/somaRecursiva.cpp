@@ -25,6 +25,18 @@ int soma(int X, int Y) {
     }
 }
 
+// ex: 3 + 4
+// X = 3, Y = 4
+// soma() -> 7
+// X = 4, Y = 3
+// soma() -> 7
+// X = 5, Y = 2
+// soma() -> 7
+// X = 6, Y = 1
+// soma() -> 7
+// X = 7, Y = 0
+// retorna o próprio X
+
 TEST_CASE("Somar Dois Números Inteiros - Testes") {
     CHECK(soma(3, 4) == 7);
     CHECK(soma(0, 5) == 5);

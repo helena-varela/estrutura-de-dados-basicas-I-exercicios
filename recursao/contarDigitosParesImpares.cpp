@@ -17,8 +17,28 @@
  * @param N O número natural a ser processado.
  * @return Um par com a quantidade de dígitos pares e ímpares.
  */
+
+std::pair<int, int> contarDigitosParesImparesRecursivo(int N, std::pair<int, int> pair) {
+    int ultN = N%10;
+    if (N == 0)
+    {
+        return {pair.first, pair.second};
+    } else if (ultN % 2 == 0) {
+        pair.first += 1;
+        return contarDigitosParesImparesRecursivo(N/10, {pair.first, pair.second});
+    } else if(ultN % 2 != 0){
+        pair.second += 1;
+        return contarDigitosParesImparesRecursivo(N/10, {pair.first, pair.second});
+    }
+}
+
 std::pair<int, int> contarDigitosParesImpares(int N) {
-    return std::make_pair(-1, -1);
+    if (N == 0)
+    {
+        return {1, 0};
+    } else{
+    return contarDigitosParesImparesRecursivo(N, {0, 0});    
+    }
 }
 
 TEST_CASE("Contar Dígitos Pares e Ímpares - Testes") {
