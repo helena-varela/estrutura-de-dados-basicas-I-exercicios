@@ -1,6 +1,10 @@
 *.out
 *.csv
-*.png
 *.pdf
 *env
 *zip
+busca_binaria_interativa
+busca_binaria_recursiva
+busca_sequencial_interativa
+busca_sequencial_recursiva
+meuambiente
