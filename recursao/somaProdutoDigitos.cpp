@@ -10,6 +10,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../doctest.h"
 #include <utility> // Para usar std::pair
+#include <iostream>
 
 /**
  * @brief Calcula o somatório e o produtório dos dígitos de um número natural N usando recursão.
@@ -17,8 +18,15 @@
  * @param N O número natural a ser processado.
  * @return Um par com o somatório e o produtório dos dígitos de N.
  */
+
 std::pair<int, int> somaProdutorioDigitos(int N) {
-    return std::make_pair(-1, -1);
+    if(N >= 0 && N<=9){
+        return {N, N}; //se for apenas um digito retorna o próprio dígito
+    } else {
+        int ultimoDigito = N%10; // retornar o último dígito
+        auto resultado = somaProdutorioDigitos(N/10);
+        return {resultado.first + ultimoDigito, resultado.second * ultimoDigito};
+    }
 }
 
 TEST_CASE("Soma e Produtório dos Dígitos - Testes") {

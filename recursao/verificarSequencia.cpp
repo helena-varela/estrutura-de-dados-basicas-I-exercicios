@@ -16,8 +16,32 @@
  * @param N O número natural a ser verificado.
  * @return true se houver dois dígitos iguais consecutivos, false caso contrário.
  */
+
+
+
+bool verificarSequenciaRecursiva(int N, int anterior){
+    if (N == 0)
+    {
+        return false;
+    }
+
+    int digito = N%10;
+
+    if (digito == anterior)
+    {
+        return true;
+    }
+
+    return verificarSequenciaRecursiva(N/10, digito);
+}   
+
 bool verificarSequencia(int N) {
-    return false;
+    if (N<=9)
+    {
+        return false;
+    }
+    
+    return verificarSequenciaRecursiva(N, -1);
 }
 
 TEST_CASE("Verificar Dígitos Iguais Consecutivos - Testes") {

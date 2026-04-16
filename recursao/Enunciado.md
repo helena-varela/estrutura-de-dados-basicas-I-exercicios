@@ -4,25 +4,25 @@
 
 ### Exercícios
 
-1. **Soma recursiva de dois inteiros** (`somaRecursiva.cpp`)
+1. **Soma recursiva de dois inteiros** (`somaRecursiva.cpp`) OK
     - **Descrição:** Implemente uma função recursiva que calcula a soma de dois inteiros sem usar o operador `+`.
 
-2. **Multiplicação recursiva de dois inteiros** (`multiplicacaoRecursiva.cpp`)
+2. **Multiplicação recursiva de dois inteiros** (`multiplicacaoRecursiva.cpp`) OK
     - **Descrição:** Implemente uma função recursiva que calcula a multiplicação de dois inteiros sem usar o operador `*`.
 
-3. **Exponenciação recursiva de dois inteiros** (`exponenciacaoRecursiva.cpp`)
+3. **Exponenciação recursiva de dois inteiros** (`exponenciacaoRecursiva.cpp`) OK
     - **Descrição:** Implemente uma função recursiva que calcula a exponenciação de dois inteiros `a` elevado a `b` (`a^b`).
 
-4. **Contar dígitos pares e ímpares de um número natural** (`contarDigitosParesImpares.cpp`)
+4. **Contar dígitos pares e ímpares de um número natural** (`contarDigitosParesImpares.cpp`) OK
     - **Descrição:** Implemente uma função recursiva que conta quantos dígitos pares e ímpares existem em um número natural `N`. A função deve retornar um par de valores: a contagem de dígitos pares e a contagem de dígitos ímpares, nesta ordem.
 
-5. **Calcular soma e produto dos dígitos de um número natural** (`somaProdutoDigitos.cpp`)
+5. **Calcular soma e produto dos dígitos de um número natural** (`somaProdutoDigitos.cpp`) OK
     - **Descrição:** Implemente uma função recursiva que calcula o somatório e o produtório dos dígitos de um número natural `N`. A função deve retornar um par de valores: a soma e o produto dos dígitos, nesta ordem.
 
-6. **Menor e maior dígito de um número natural** (`menorMaiorDigito.cpp`)
+6. **Menor e maior dígito de um número natural** (`menorMaiorDigito.cpp`) OK
     - **Descrição:** Implemente uma função recursiva que encontra o menor e o maior dígito de um número natural `N`. A função deve retornar um par de valores: o menor e o maior dígito, nesta ordem.
 
-7. **Verificar sequência específica em um array** (`verificarSequencia.cpp`)
+7. **Verificar sequência específica em um array** (`verificarSequencia.cpp`) OK
     - **Descrição:** Implemente uma função que verifica se um array de inteiros contém uma sequência de dígitos iguais em sequência. A função deve retornar `true` se a sequência for encontrada e `false` caso contrário.
     
     Obs.: Além dessas questões daqui, também tente resolver recursivamente as seguintes questões da lista de exercícios de arrays:
