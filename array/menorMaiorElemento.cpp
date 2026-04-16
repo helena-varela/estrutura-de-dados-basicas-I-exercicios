@@ -17,10 +17,37 @@ using namespace std;
  * @return Um par onde o primeiro valor é o menor elemento e o segundo é o maior elemento.
  * @throws std::invalid_argument se o array estiver vazio (tamanho == 0).
  */
+
+
+std::pair<int, int> menorMaiorElementoRecursivo(const int numeros[], int tamanho, int interacao, std::pair<int, int> valores){
+    if (tamanho == interacao)
+    {
+        return valores;
+    }
+
+    if (numeros[interacao] < valores.first)
+    {
+        valores.first = numeros[interacao];
+    }
+
+    if (numeros[interacao] > valores.second)
+    {
+        valores.second = numeros[interacao];
+    }
+    
+    return menorMaiorElementoRecursivo(numeros, tamanho, interacao+1, valores);
+    
+}
+
 std::pair<int, int> menorMaiorElemento(const int numeros[], int tamanho) {
-    int menor = 0;
-    int maior = 0;
-    return make_pair(menor, maior);
+
+    if (numeros == nullptr || tamanho <= 0) {
+        return {0, 0}; 
+    }
+
+    int maior = numeros[0];
+    int menor = numeros[0];
+    return menorMaiorElementoRecursivo(numeros, tamanho, 0, {menor, maior});
 }
 
 TEST_CASE("Menor e Maior Elemento - Teste com elementos distintos") {

@@ -16,10 +16,33 @@ using namespace std;
  * @param tamanho O tamanho do array.
  * @return Um par onde o primeiro valor é o número de elementos pares e o segundo é o número de elementos ímpares.
  */
-std::pair<int, int> contarParesImpares(const int numeros[], int tamanho) {
+
+std::pair<int, int> contarParesImparesRecursivo(const int numeros[], int tamanho, int interacao, std::pair<int, int> valores){
+    if (interacao == tamanho)
+    {
+        return valores;
+    }
+
+    if (numeros[interacao]%2 == 0 )
+    {
+        valores.first +=  1;
+        return contarParesImparesRecursivo(numeros, tamanho, interacao+1, valores);
+    } else {
+        valores.second += 1;
+        return contarParesImparesRecursivo(numeros, tamanho, interacao+1, valores);
+    }
+
+}
+
+ std::pair<int, int> contarParesImpares(const int numeros[], int tamanho) {
+    if (numeros == nullptr || tamanho <= 0)
+    {
+        return {0, 0};
+    }
+    
     int pares = 0;
     int impares = 0;
-    return make_pair(pares, impares);
+    return contarParesImparesRecursivo(numeros, tamanho, 0, {pares, impares});
 }
 
 TEST_CASE("Contar Pares e Ímpares - Teste com elementos mistos") {

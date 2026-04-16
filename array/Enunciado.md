@@ -4,10 +4,10 @@
 
 ### Exercícios
 
-1. **Contar elementos pares e ímpares num array** (`contarParesImpares.cpp`)
+1. **Contar elementos pares e ímpares num array** (`contarParesImpares.cpp`) OK
    - **Descrição:** Implemente uma função que recebe um array de inteiros e conta quantos elementos são pares e quantos são ímpares. A função deve retornar um par de valores: a contagem de pares e a contagem de ímpares, nesta ordem.
 
-2. **Encontrar menor e maior elemento num array** (`menorMaiorElemento.cpp`)
+2. **Encontrar menor e maior elemento num array** (`menorMaiorElemento.cpp`) OK
    - **Descrição:** Implemente uma função que recebe um array de inteiros e retorna o menor e o maior elemento presente no array. A função deve retornar um par de valores: o menor e o maior valor, nesta ordem.
 
 3. **Calcular soma e produto de todos os elementos de um array** (`somaProdutoElementos.cpp`)

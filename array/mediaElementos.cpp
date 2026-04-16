@@ -15,8 +15,26 @@
  * @return A média dos elementos do array.
  * @throws std::invalid_argument se o array estiver vazio.
  */
+
+double mediaArrayRecursiva(const int numeros[], int tamanho, int soma, int interacao) {
+    if (interacao == tamanho)
+    {   
+        return (double)soma/tamanho;
+    } else {
+        soma = numeros[interacao] + soma;
+        return mediaArrayRecursiva(numeros, tamanho, soma, interacao+1);
+    }
+    
+}
+
 double mediaArray(const int numeros[], int tamanho) {
-    return -1.0;
+    if (tamanho == 0)
+    {
+        throw std::invalid_argument("Array vazio");
+    }
+    
+    return mediaArrayRecursiva(numeros, tamanho, 0, 0);
+    
 }
 
 TEST_CASE("Média - Teste com elementos positivos") {
