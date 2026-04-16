@@ -18,8 +18,38 @@
  * @param alvo O valor alvo.
  * @return O valor do elemento mais próximo ao alvo.
  */
+
+int encontrarElementoProximoRecursivo(const int arr[], int inicio, int fim, int alvo, int tamanho){
+    if(inicio > fim){
+        // Se o fim passou da borda esquerda, o único candidato é o inicio
+        if (fim < 0) return arr[inicio];
+        // Se o inicio passou da borda direita, o único candidato é o fim
+        if (inicio >= tamanho) return arr[fim];
+
+        if (abs(arr[inicio] - alvo) < abs(arr[fim] - alvo))
+        {
+            return arr[inicio];
+        } else {
+            return arr[fim];
+        }
+        
+    }
+    
+    int meio = (inicio + fim)/2;
+    
+    if (arr[meio] == alvo)
+    {
+        return arr[meio];
+    } else if(arr[meio] > alvo){
+        return encontrarElementoProximoRecursivo(arr, inicio, meio-1, alvo, tamanho);
+    } else if(arr[meio] < alvo){
+        return encontrarElementoProximoRecursivo(arr, meio+1, fim, alvo, tamanho);
+    }
+    
+}
+
 int encontrarElementoProximo(const int arr[], int tamanho, int alvo) {
-    return -1;
+    return encontrarElementoProximoRecursivo(arr, 0, tamanho - 1, alvo, tamanho);
 }
 
 TEST_CASE("Encontrar o Elemento Mais Próximo - Testes") {

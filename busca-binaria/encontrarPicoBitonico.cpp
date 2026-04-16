@@ -17,8 +17,25 @@
  * @param tamanho O tamanho do array.
  * @return O índice do ponto de pico.
  */
-int encontrarPicoBitonico(const int arr[], int tamanho) {
+
+int encontrarPicoBitonicoRecursivo(const int arr[], int inicio, int fim){
+    int meio = (inicio + fim)/2;
+    if ((arr[meio] > arr[meio-1] && arr[meio] > arr[meio+1]) || (inicio == fim))
+    {
+        return meio;
+    } else if(arr[meio] < arr[meio+1]){
+        return encontrarPicoBitonicoRecursivo(arr, meio+1, fim);
+    } else if(arr[meio] < arr[meio-1]){
+        return encontrarPicoBitonicoRecursivo(arr, inicio, meio-1);
+    } else if(inicio > fim){
+        return -1;
+    }
+    
     return -1;
+}
+
+int encontrarPicoBitonico(const int arr[], int tamanho) {
+    return encontrarPicoBitonicoRecursivo(arr, 0, tamanho-1);
 }
 
 TEST_CASE("Encontrar o Ponto de Pico em Sequência Bitônica - Testes") {

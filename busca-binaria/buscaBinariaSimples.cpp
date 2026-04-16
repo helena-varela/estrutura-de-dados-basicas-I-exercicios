@@ -20,22 +20,22 @@
  */
 
 int buscaBinariaRecursiva(const int arr[], int inicio, int fim, int alvo){
-    int meio = (inicio + fim)/2;
-
-    if (inicio > fim)
-    {
+    
+    if(inicio>fim){
         return -1;
-    } 
-    else if(arr[meio] > alvo){
-        return buscaBinariaRecursiva(arr, 0, meio-1, alvo);
-    } 
-    else if(arr[meio] < alvo){
-        return buscaBinariaRecursiva(arr, meio+1, fim, alvo);
-    } 
-    else if (arr[meio] == alvo){
-        return meio;
     }
 
+    int meio = (inicio + fim)/2;
+
+    if (arr[meio] == alvo)
+    {
+        return meio;
+    } else if(alvo < arr[meio]){
+        return buscaBinariaRecursiva(arr, inicio, meio-1, alvo);
+    } else if (alvo > arr[meio])
+    {
+        return buscaBinariaRecursiva(arr, meio+1, fim, alvo);
+    }
     return -1;
 }
 
