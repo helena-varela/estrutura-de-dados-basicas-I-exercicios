@@ -14,8 +14,28 @@
  * @param elemento O elemento cuja posição deve ser encontrada.
  * @return A posição onde o elemento deveria estar.
  */
+
+int posicaoInserirOrdenadoRecursivo(const int numeros[], int tamanho, int interacao, int alvo){
+    if (interacao == tamanho)
+    {   // se percorreu todo o array e o maior que vc encontrou foi o último elemento, retorna o último índice
+        return interacao;
+    }
+
+    if (numeros[interacao] >= alvo)
+    {   // se encontrou um valor do array maior que alvo, insere o elemento nessa posição
+        return interacao;
+    }
+
+    return posicaoInserirOrdenadoRecursivo(numeros, tamanho, interacao + 1, alvo);
+}
+
 int posicaoInserirOrdenado(const int numeros[], int tamanho, int elemento) {
-    return -1;
+    if (numeros == nullptr || numeros == 0)
+    {
+        return 0;
+    }
+    
+    return posicaoInserirOrdenadoRecursivo(numeros, tamanho, 0, elemento);
 }
 
 TEST_CASE("Posição Elemento Ordenado - Teste com elemento no meio") {

@@ -14,7 +14,21 @@
  * @param n Número de posições para rotacionar.
  */
 void rotacaoArray(int numeros[], int tamanho, int n) {
-    return;
+    if (numeros == nullptr || tamanho <= 1 || n <= 0) return;
+
+    if (n <= 0)
+    {
+        return; 
+    }
+
+    int ultimo = numeros[tamanho-1];
+    for (int i = tamanho-1; i > 0; i--)
+    {
+        numeros[i] = numeros[i-1];
+    }
+    numeros[0] = ultimo;
+
+    return rotacaoArray(numeros, tamanho, n-1);
 }
 
 TEST_CASE("Rotação - Teste com rotação simples") {

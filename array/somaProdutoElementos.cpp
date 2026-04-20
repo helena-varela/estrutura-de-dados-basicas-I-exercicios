@@ -16,11 +16,30 @@ using namespace std;
  * @param tamanho O tamanho do array.
  * @return Um par onde o primeiro valor é a soma dos elementos e o segundo é o produto dos elementos.
  */
+
+ std::pair<int, int> somaProdutoArrayRecursivo(const int numeros[], int tamanho, int interacao, std::pair<int, int>valores) {
+
+    if (tamanho == interacao)
+    {
+        return valores;
+    }
+
+    valores.first = numeros[interacao] + valores.first;
+    valores.second = numeros[interacao] * valores.second;
+
+    return somaProdutoArrayRecursivo(numeros, tamanho, interacao +1, valores);
+}
+
 std::pair<int, int> somaProdutoArray(const int numeros[], int tamanho) {
     int soma = 0;
     int produto = 1;
 
-    return make_pair(soma, produto);
+    if (numeros == nullptr || tamanho <= 0)
+    {
+        return {0, 1};
+    }
+
+    return somaProdutoArrayRecursivo(numeros, tamanho, 0, {soma, produto});
 }
 
 TEST_CASE("Soma e Produto - Teste com elementos positivos") {

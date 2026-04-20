@@ -10,10 +10,10 @@
 2. **Encontrar menor e maior elemento num array** (`menorMaiorElemento.cpp`) OK
    - **Descrição:** Implemente uma função que recebe um array de inteiros e retorna o menor e o maior elemento presente no array. A função deve retornar um par de valores: o menor e o maior valor, nesta ordem.
 
-3. **Calcular soma e produto de todos os elementos de um array** (`somaProdutoElementos.cpp`)
+3. **Calcular soma e produto de todos os elementos de um array** (`somaProdutoElementos.cpp`) OK
    - **Descrição:** Implemente uma função que calcula a soma e o produto de todos os elementos de um array de inteiros. A função deve retornar um par de valores: a soma e o produto dos elementos, nesta ordem.
 
-4. **Calcular a média dos elementos de um array** (`mediaElementos.cpp`)
+4. **Calcular a média dos elementos de um array** (`mediaElementos.cpp`) OK
    - **Descrição:** Implemente uma função que calcula a média dos elementos de um array de inteiros. A função deve retornar a média como um número de ponto flutuante (double).
 
 5. **Maior produto de todos os elementos, exceto o atual** (`maiorProdutoExcetoAtual.cpp`)
@@ -37,6 +37,6 @@
 11. **Tamanho da maior sequência crescente contínua** (`maiorSequenciaCrescente.cpp`)
     - **Descrição:** Implemente uma função que encontra o tamanho da maior sequência crescente contínua em um array de inteiros. A função deve retornar o tamanho da maior sequência identificada.
 
-12. **Encontrar a posição onde deveria estar um elemento num array ordenado** (`posicaoElementoOrdenado.cpp`)
+12. **Encontrar a posição onde deveria estar um elemento num array ordenado** (`posicaoElementoOrdenado.cpp`) OK
     - **Descrição:** Implemente uma função que recebe um array de inteiros ordenado e um elemento, e retorna a posição onde esse elemento deveria estar inserido para manter a ordem do array. A função deve retornar a posição correta de inserção.
     
