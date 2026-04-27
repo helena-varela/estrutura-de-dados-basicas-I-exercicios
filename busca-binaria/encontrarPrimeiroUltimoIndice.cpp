@@ -19,8 +19,74 @@
  * @param alvo O elemento a ser buscado.
  * @return Um par contendo o primeiro e o último índice do elemento encontrado, ou (-1, -1) se não estiver presente.
  */
+
+int acharPrimeiroIndice(const int arr[], int alvo, int inicio, int fim) {
+
+    if (inicio > fim)
+    {
+        return -1;
+    }
+    
+    int meio = (inicio + fim)/2;
+
+    if (arr[meio] == alvo)
+    {
+        int buscaEsquerda = acharPrimeiroIndice(arr, alvo, inicio, meio-1);
+
+        if (buscaEsquerda != -1)
+        {
+            return buscaEsquerda;
+        } else {
+            return meio;
+        }
+        
+    } else if (arr[meio] > alvo)
+    {
+        return acharPrimeiroIndice(arr, alvo, inicio, meio-1);
+    } else if (arr[meio] < alvo)
+    {
+        return acharPrimeiroIndice(arr, alvo, meio+1, fim);
+    }
+    
+}
+
+int acharUltimorIndice(const int arr[], int alvo, int inicio, int fim){
+    if (inicio > fim)
+    {
+        return -1;
+    }
+    
+    int meio = (inicio + fim)/2;
+
+    if (arr[meio] == alvo)
+    {
+        int buscaDireita = acharUltimorIndice(arr, alvo, meio+1, fim);
+
+        if (buscaDireita != -1)
+        {
+            return buscaDireita;
+        } else {
+            return meio;
+        }
+        
+    } else if (arr[meio] > alvo)
+    {
+        return acharUltimorIndice(arr, alvo, inicio, meio-1);
+    } else if (arr[meio] < alvo)
+    {
+        return acharUltimorIndice(arr, alvo, meio+1, fim);
+    }
+}
+
 std::pair<int, int> encontrarPrimeiroUltimoIndice(const int arr[], int tamanho, int alvo) {
-    return std::make_pair(-1, -1);
+    if (arr == nullptr || tamanho <= 0){
+        return {-1, -1};
+    } 
+
+    int PrimeiroIncide = acharPrimeiroIndice(arr, alvo, 0, tamanho-1);
+    int UltimoIncide = acharUltimorIndice(arr, alvo, 0, tamanho-1);
+
+    return {PrimeiroIncide, UltimoIncide};
 }
 
 TEST_CASE("Encontrar Primeiro e Último Índice - Testes") {

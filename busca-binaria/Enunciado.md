@@ -7,7 +7,7 @@
 1. **Busca Binária Simples** (`buscaBinariaSimples.cpp`) OK
    - **Descrição:** Implemente uma função que utiliza a busca binária para encontrar a posição de um elemento em um array ordenado de inteiros. A função deve retornar o índice do elemento, ou `-1` se o elemento não estiver presente no array.
 
-2. **Encontrar o Primeiro e o Último Índice de um Elemento** (`encontrarPrimeiroUltimoIndice.cpp`)
+2. **Encontrar o Primeiro e o Último Índice de um Elemento** (`encontrarPrimeiroUltimoIndice.cpp`) OK
    - **Descrição:** Implemente uma função que usa a busca binária para encontrar o primeiro e o último índice de um elemento em um array ordenado. A função deve retornar um par com os índices do primeiro e último ocorrências do elemento, ou `-1` para ambos se o elemento não estiver presente.
 
 3. **Encontrar o Ponto de Pico em Sequência Bitônica** (`encontrarPicoBitonico.cpp`) OK 
