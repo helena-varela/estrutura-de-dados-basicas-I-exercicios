@@ -1,8 +1,9 @@
 #include "../include/ordenar.h"
+#include <string>
 
-void bubbleSort(int arr[], int tamanho){
+void bubbleSort(string arr[], int tamanho){
     bool fez_swap = true;
-    int fim = tamanho;
+    int fim = tamanho - 1;
 
     while (fez_swap)
     {
@@ -12,11 +13,15 @@ void bubbleSort(int arr[], int tamanho){
         {
             if (arr[i] > arr[i+1])
             {
-                int temp = arr[i+1];
+                string temp = arr[i+1];
                 arr[i+1] = arr[i];
                 arr[i] = temp;   
             }   
         }
         fim = fim - 1;
     }
+}
+
+void ordenar(string array[], int tamanho) {
+    bubbleSort(array, tamanho);
 }

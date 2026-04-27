@@ -1,6 +1,9 @@
 #include "../include/ordenar.h"
+#include <string>
 
-void selectionSort(int arr[], int tamanho){
+using namespace std;
+
+void selectionSort(string arr[], int tamanho){
 
     for (int i = 0; i < tamanho-1; i++)
     {
@@ -17,11 +20,15 @@ void selectionSort(int arr[], int tamanho){
 
         if (i != min)
         {
-            int temp = arr[min];
+            string temp = arr[min];
             arr[min] = arr[i];
             arr[i] = temp; 
         }
         
     }
     
+}
+
+void ordenar(string array[], int tamanho) {
+    selectionSort(array, tamanho);
 }

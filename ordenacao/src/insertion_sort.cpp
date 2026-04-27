@@ -1,9 +1,10 @@
 #include "../include/ordenar.h"
+#include <string>
 
-void insertionSort(int arr[], int tamanho){
-    for (int i = 1; i < tamanho; i++)
+void insertionSort(string arr[], int tamanho) {
+    for (int i = 1; i < tamanho; i++) 
     {
-        int novo = arr[i];
+        string novo = arr[i]; 
         int j = i-1;
         
         while (j>=0 && arr[j] > novo)
@@ -14,5 +15,8 @@ void insertionSort(int arr[], int tamanho){
 
         arr[j+1] = novo;
     }
-    
+}
+
+void ordenar(string array[], int tamanho) {
+    insertionSort(array, tamanho);
 }
