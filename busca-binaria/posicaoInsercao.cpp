@@ -32,10 +32,10 @@
     {
         return meio;
     } else if(arr[meio] > alvo){
-        return encontrarPosicaoInsercaoRecursivo(arr, meio + 1, fim, alvo);
+        return encontrarPosicaoInsercaoRecursivo(arr, inicio, meio-1, alvo);
     }
     else if (arr[meio] < alvo){ 
-        return encontrarPosicaoInsercaoRecursivo(arr, inicio, meio - 1, alvo);
+        return encontrarPosicaoInsercaoRecursivo(arr, meio+1, fim, alvo);
     }
  }  
 

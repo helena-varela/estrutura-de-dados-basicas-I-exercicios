@@ -37,7 +37,7 @@ int acharPrimeiroIndice(const int arr[], int alvo, int inicio, int fim) {
         {
             return buscaEsquerda;
         } else {
-            return meio;
+            return meio; 
         }
         
     } else if (arr[meio] > alvo)
