@@ -38,7 +38,7 @@ Lista::~Lista()
 bool Lista::inserirInicio(const std::string& elemento)
 {
     No* novo = new No(elemento); //crio uma nova instância da classe No com o valor elemento
-    novo->proximo = this->primeiro; // o atributo proximo é igual ao primeiro elemento da lista encadeada
+    novo->proximo = this->primeiro; // o atributo proximo de novo é igual ao primeiro elemento da lista encadeada
     this->primeiro = novo; // agora o primeiro elemento é o novo
 
     if (this->quantidade == 0) {
