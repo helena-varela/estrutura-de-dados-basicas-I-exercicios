@@ -12,28 +12,31 @@
 #include <optional>
 #include <unordered_set>
 
-struct No {
+struct No
+{
 	std::string chave;
 	std::string valor;
-	No* proximo;
+	No *proximo;
 
-	No(const std::string& c, const std::string& v) : chave(c), valor(v), proximo(nullptr) {}
+	No(const std::string &c, const std::string &v) : chave(c), valor(v), proximo(nullptr) {}
 };
 
-enum class ConsistenciaStatus {
-    OK = 0,
-    PONTEIRO_INVALIDO,
-    CICLO_DETECTADO,
-    DESALINHAMENTO_HASH_INDICE,
-    QUANTIDADE_INCORRETA,
+enum class ConsistenciaStatus
+{
+	OK = 0,
+	PONTEIRO_INVALIDO,
+	CICLO_DETECTADO,
+	DESALINHAMENTO_HASH_INDICE,
+	QUANTIDADE_INCORRETA,
 	CHAVE_DUPLICADA
 };
 
-class TabelaHash {
-friend class TabelaHashTestHelper;
+class TabelaHash
+{
+	friend class TabelaHashTestHelper;
 
 private:
-	No** array;
+	No **array;
 	int capacidade;
 	int quantidade;
 
@@ -41,31 +44,39 @@ private:
 	static constexpr float FATOR_CARGA_MAX = 2.0f;
 	static constexpr float FATOR_CARGA_MIN = 0.25f;
 
-	unsigned int valorHash(const std::string& chave) const {
+	unsigned int valorHash(const std::string &chave) const
+	{
 		unsigned int valorHash = 0;
-		for (char c : chave) {
+		for (char c : chave)
+		{
 			valorHash += static_cast<unsigned int>(c);
 		}
 		return valorHash;
 	}
 
-	int hash(const std::string& chave) const {
+	int hash(const std::string &chave) const
+	{
 		return this->valorHash(chave) % capacidade;
 	}
 
 public:
-	TabelaHash(int cap = CAPACIDADE_MINIMA) : capacidade(cap), quantidade(0) {
-		array = new No*[capacidade];		
-		for (int i = 0; i < capacidade; ++i) {
+	TabelaHash(int cap = CAPACIDADE_MINIMA) : capacidade(cap), quantidade(0)
+	{
+		array = new No *[capacidade];
+		for (int i = 0; i < capacidade; ++i)
+		{
 			array[i] = nullptr;
 		}
 	}
 
-	~TabelaHash() {
-		for (int i = 0; i < capacidade; ++i) {
-			No* atual = array[i];
-			while (atual != nullptr) {
-				No* temp = atual;
+	~TabelaHash()
+	{
+		for (int i = 0; i < capacidade; ++i)
+		{
+			No *atual = array[i];
+			while (atual != nullptr)
+			{
+				No *temp = atual;
 				atual = atual->proximo;
 				delete temp;
 			}
@@ -73,82 +84,62 @@ public:
 		delete[] array;
 	}
 
-
-
-
-
-
-
-
-
-	
-
-	bool inserirOrdenado(const std::string& chave, const std::string& valor)                                                                                                                                                                                // EAMB 1.0
+	bool inserirOrdenado(const std::string &chave, const std::string &valor) // EAMB 1.0
 	{
-		throw new std::runtime_error("Ainda não implementado.");
+		auto indice = hash(chave);
+
+		No *atual = array[indice];
+		No *anterior = nullptr;
+
+		while (atual != nullptr) // faz a busca somente
+		{
+			if (atual->chave == chave) // se encontrar a chave tem que atualizar
+			{
+				atual->valor = valor;
+				return true;
+			}
+
+			if (atual->chave > chave) // como eh ordenado e encontrar uma chave maior, para o while e insere 
+			{
+				break;
+			}
+
+			anterior = atual;
+			atual = atual->proximo;
+		}
+
+		No *novo = new No(chave, valor);
+
+		if (anterior == nullptr)
+		{
+			// insere no início da lista
+			novo->proximo = atual;
+			array[indice] = novo;
+		}
+		else
+		{
+			// insere no meio ou no fim da lista
+			novo->proximo = atual;
+			anterior->proximo = novo;
+		}
+
+		quantidade++;
+		return true;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	int tamanho() const {
+	int tamanho() const
+	{
 		return quantidade;
 	}
 
-	void imprimir() const {
-		for (int i = 0; i < capacidade; ++i) {
+	void imprimir() const
+	{
+		for (int i = 0; i < capacidade; ++i)
+		{
 			std::cout << "[" << i << "]: ";
-			No* atual = array[i];
-			while (atual != nullptr) {
+			No *atual = array[i];
+			while (atual != nullptr)
+			{
 				std::cout << "(" << atual->chave << ", " << atual->valor << ") → ";
 				atual = atual->proximo;
 			}
@@ -156,36 +147,44 @@ public:
 		}
 	}
 
-	ConsistenciaStatus checarConsistencia() const {
+	ConsistenciaStatus checarConsistencia() const
+	{
 		int contadorTotal = 0;
 		std::unordered_set<std::string> chavesVisitadas;
 
-		for (int i = 0; i < capacidade; ++i) {
-			if(array[i] == nullptr){
+		for (int i = 0; i < capacidade; ++i)
+		{
+			if (array[i] == nullptr)
+			{
 				continue;
 			}
 
-			No* lento = array[i];
-			No* rapido = array[i];
+			No *lento = array[i];
+			No *rapido = array[i];
 
 			// Detecta ciclos com algoritmo do Floyd
-			while (rapido != nullptr && rapido->proximo != nullptr) {
+			while (rapido != nullptr && rapido->proximo != nullptr)
+			{
 				rapido = rapido->proximo->proximo;
 				lento = lento->proximo;
 
-				if (rapido == lento) {
+				if (rapido == lento)
+				{
 					return ConsistenciaStatus::CICLO_DETECTADO;
 				}
 			}
 
-			No* atual = array[i];
-			while (atual != nullptr) {
+			No *atual = array[i];
+			while (atual != nullptr)
+			{
 				// Todos pares no mesmo encadeamento devem possuir o mesmo hash
-				if (hash(atual->chave) != i) {
+				if (hash(atual->chave) != i)
+				{
 					return ConsistenciaStatus::DESALINHAMENTO_HASH_INDICE;
 				}
 				// Chaves não podem se repetir
-				if (chavesVisitadas.count(atual->chave)) {
+				if (chavesVisitadas.count(atual->chave))
+				{
 					return ConsistenciaStatus::CHAVE_DUPLICADA;
 				}
 				chavesVisitadas.insert(atual->chave);
@@ -194,7 +193,8 @@ public:
 			}
 		}
 
-		if (contadorTotal != quantidade) {
+		if (contadorTotal != quantidade)
+		{
 			return ConsistenciaStatus::QUANTIDADE_INCORRETA;
 		}
 
