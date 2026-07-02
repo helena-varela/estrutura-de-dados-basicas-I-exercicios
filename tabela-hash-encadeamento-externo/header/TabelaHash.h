@@ -108,7 +108,48 @@ public:
 	}
 
 	bool inserirOrdenado(const std::string& chave, const std::string& valor) {
-		throw std::runtime_error("Ainda não foi implementado.");
+		auto indice = hash(chave);
+		No* noAtual = array[indice];
+		No* noAnterior = nullptr;
+
+		while (noAtual != nullptr)
+		{
+			if (noAtual->chave == chave) // se existir já atualiza
+			{
+				noAtual->valor = valor;
+				return true;
+			}
+
+			if (noAtual->chave > chave) { // se a chave atual é maior que a chave recebida, tem que inserir ali
+				No* novoNo = new No(chave, valor);
+				novoNo->proximo = noAtual; // novo nó aponta para o atual
+
+				if (noAnterior == nullptr) { // se for o primeiro da lista
+					array[indice] = novoNo; // vira o novo início da lista 
+				} else {
+					noAnterior->proximo = novoNo; // conecta o anterior ao novo nó 
+				}
+
+				quantidade++;
+				return true;
+			}
+
+			noAnterior = noAtual;
+			noAtual = noAtual->proximo;
+		}
+
+		No* novoNo = new No(chave, valor);
+		novoNo->proximo = nullptr;
+
+		if (noAnterior == nullptr) {
+			array[indice] = novoNo; // lista estava vazia 
+		} else {
+			noAnterior->proximo = novoNo; // Vira o último nó da lista
+		}
+
+		quantidade++;
+		return true;
+		
 	}
 
 	bool inserir(const std::string& chave, const std::string& valor) {
