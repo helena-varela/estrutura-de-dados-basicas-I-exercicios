@@ -179,7 +179,32 @@ public:
 	}
 
 	bool remover(const std::string& chave) {
-		throw std::runtime_error("Ainda não foi implementado.");
+		auto indice = hash(chave);
+		No* noAtual = array[indice];
+		No* noAnterior = nullptr;
+
+		while (noAtual != nullptr)
+		{
+			if (noAtual->chave == chave)
+			{
+
+				if (noAnterior == nullptr)
+				{
+					array[indice] = noAtual->proximo;
+				} else {
+					noAnterior->proximo = noAtual->proximo;
+				}
+				delete noAtual;
+				quantidade--;
+				return true;
+			}
+			
+			noAnterior = noAtual;
+			noAtual = noAtual->proximo;
+		}
+
+		return false;
+		
 	}
 
 	std::optional<std::string> buscar(const std::string& chave) const {

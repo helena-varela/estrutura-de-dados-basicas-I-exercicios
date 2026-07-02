@@ -83,10 +83,6 @@ private:
     {
         Elemento* arrayNovo = new Elemento[tamanhoNovo];
 
-        for (int i = 0; i < tamanhoNovo; i++) {
-            arrayNovo[i].estado = Estado::LIVRE;
-        }
-
         Elemento* arrayVelho = this->array;
         int capacidadeVelha = this->capacidade;
 
