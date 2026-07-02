@@ -112,7 +112,29 @@ public:
 	}
 
 	bool inserir(const std::string& chave, const std::string& valor) {
-		throw std::runtime_error("Ainda não foi implementado.");
+		auto indice = hash(chave);
+		No* no = array[indice];
+
+		// aqui procura se o nó já existe
+		while (no != nullptr)
+		{
+			if (chave == no->chave)
+			{
+				no->valor = valor;
+				return true;
+			}
+			
+			no = no->proximo;
+			
+		}
+
+		// se não existe ele cria o nó
+		No* novoNo = new No(chave, valor);
+		novoNo->proximo = array[indice];
+		array[indice] = novoNo;
+		quantidade++;
+		return true;
+		
 	}
 
 	bool remover(const std::string& chave) {
@@ -120,7 +142,20 @@ public:
 	}
 
 	std::optional<std::string> buscar(const std::string& chave) const {
-		throw std::runtime_error("Ainda não foi implementado.");
+		auto indice = hash(chave);
+		No* noAtual = array[indice];
+
+		while (noAtual != nullptr)
+		{
+			if (noAtual->chave == chave)
+			{
+				return noAtual->valor;
+			}
+			
+			noAtual = noAtual->proximo;
+		}
+		
+		return std::nullopt;
 	}
 
 	int tamanho() const {
